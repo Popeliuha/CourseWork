@@ -1,0 +1,43 @@
+﻿@model courseworkv5.TakenBackTickets
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>TakenBackTickets</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TakenBack)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TakenBack)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateWhenTakenBack)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateWhenTakenBack)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Tickets.SoldCHeck)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tickets.SoldCHeck)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.TakenBackTicketsId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

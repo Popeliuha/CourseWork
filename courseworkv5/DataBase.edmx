@@ -1,0 +1,1006 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="SecondDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Administrators">
+          <Key>
+            <PropertyRef Name="AdministratorId" />
+          </Key>
+          <Property Name="AdministratorId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="WorkerId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="BrigadeMembers">
+          <Key>
+            <PropertyRef Name="BrigadeMembersId" />
+          </Key>
+          <Property Name="BrigadeMembersId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BrigadeId" Type="int" Nullable="false" />
+          <Property Name="WorkerId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Brigades">
+          <Key>
+            <PropertyRef Name="BrigadeId" />
+          </Key>
+          <Property Name="BrigadeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DepartmentId" Type="int" Nullable="false" />
+          <Property Name="BrigadeName" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Clients">
+          <Key>
+            <PropertyRef Name="ClientId" />
+          </Key>
+          <Property Name="ClientId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ClientName" Type="varchar" MaxLength="20" />
+          <Property Name="Adress" Type="varchar" MaxLength="20" />
+          <Property Name="Age" Type="int" />
+          <Property Name="Sex" Type="varchar" MaxLength="5" />
+          <Property Name="GivenPackage" Type="varchar" MaxLength="5" />
+        </EntityType>
+        <EntityType Name="Departments">
+          <Key>
+            <PropertyRef Name="DepartmentId" />
+          </Key>
+          <Property Name="DepartmentId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DepartmentName" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Salary" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="HubStations">
+          <Key>
+            <PropertyRef Name="HubStationsId" />
+          </Key>
+          <Property Name="HubStationsId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="StationName" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="RouteId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Inspection">
+          <Key>
+            <PropertyRef Name="InspectionId" />
+          </Key>
+          <Property Name="InspectionId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TrainId" Type="int" Nullable="false" />
+          <Property Name="Inspection" Type="varchar" MaxLength="5" />
+          <Property Name="DateOfInspection" Type="date" />
+        </EntityType>
+        <EntityType Name="Repair">
+          <Key>
+            <PropertyRef Name="RepairId" />
+          </Key>
+          <Property Name="RepairId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TrainId" Type="int" Nullable="false" />
+          <Property Name="Repair" Type="varchar" MaxLength="5" />
+          <Property Name="DateOfRepair" Type="date" />
+        </EntityType>
+        <EntityType Name="Routs">
+          <Key>
+            <PropertyRef Name="RouteId" />
+          </Key>
+          <Property Name="RouteId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RouteName" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="StartPoint" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="LastPoint" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="RouteTime" Type="int" Nullable="false" />
+          <Property Name="Category" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TakenBackTickets">
+          <Key>
+            <PropertyRef Name="TakenBackTicketsId" />
+          </Key>
+          <Property Name="TakenBackTicketsId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TicketId" Type="int" Nullable="false" />
+          <Property Name="TakenBack" Type="varchar" MaxLength="5" />
+          <Property Name="DateWhenTakenBack" Type="date" />
+        </EntityType>
+        <EntityType Name="Tickets">
+          <Key>
+            <PropertyRef Name="TicketId" />
+          </Key>
+          <Property Name="TicketId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="WorkerId" Type="int" />
+          <Property Name="BuyerId" Type="int" />
+          <Property Name="PassageId" Type="int" Nullable="false" />
+          <Property Name="SoldCHeck" Type="varchar" MaxLength="5" />
+          <Property Name="TimeOfSell" Type="varchar" MaxLength="20" />
+          <Property Name="Reservation" Type="varchar" MaxLength="5" />
+        </EntityType>
+        <EntityType Name="TimeTable">
+          <Key>
+            <PropertyRef Name="PassageId" />
+          </Key>
+          <Property Name="PassageId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TimeTableName" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="TrainNumber" Type="int" Nullable="false" />
+          <Property Name="RouteId" Type="int" Nullable="false" />
+          <Property Name="DepartureTime" Type="datetime" />
+          <Property Name="ArrivalTime" Type="datetime" />
+          <Property Name="Canceled" Type="varchar" MaxLength="5" />
+          <Property Name="Detained" Type="varchar" MaxLength="5" />
+          <Property Name="TicketPrice" Type="int" />
+        </EntityType>
+        <EntityType Name="Trains">
+          <Key>
+            <PropertyRef Name="TrainId" />
+          </Key>
+          <Property Name="TrainId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TrainNumber" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="TrainType" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="BrigadeId" Type="int" Nullable="false" />
+          <Property Name="TrainAge" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Workers">
+          <Key>
+            <PropertyRef Name="WorkerId" />
+          </Key>
+          <Property Name="WorkerId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="WorkerName" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="DepartmentId" Type="int" Nullable="false" />
+          <Property Name="Sex" Type="varchar" MaxLength="6" Nullable="false" />
+          <Property Name="Age" Type="int" Nullable="false" />
+          <Property Name="ChildrenCount" Type="int" />
+          <Property Name="Experience" Type="int" />
+        </EntityType>
+        <Association Name="FK__Administr__Worke__5535A963">
+          <End Role="Workers" Type="Self.Workers" Multiplicity="1" />
+          <End Role="Administrators" Type="Self.Administrators" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Workers">
+              <PropertyRef Name="WorkerId" />
+            </Principal>
+            <Dependent Role="Administrators">
+              <PropertyRef Name="WorkerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__BrigadeMe__Briga__5165187F">
+          <End Role="Brigades" Type="Self.Brigades" Multiplicity="1" />
+          <End Role="BrigadeMembers" Type="Self.BrigadeMembers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Brigades">
+              <PropertyRef Name="BrigadeId" />
+            </Principal>
+            <Dependent Role="BrigadeMembers">
+              <PropertyRef Name="BrigadeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__BrigadeMe__Worke__52593CB8">
+          <End Role="Workers" Type="Self.Workers" Multiplicity="1" />
+          <End Role="BrigadeMembers" Type="Self.BrigadeMembers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Workers">
+              <PropertyRef Name="WorkerId" />
+            </Principal>
+            <Dependent Role="BrigadeMembers">
+              <PropertyRef Name="WorkerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Brigades__Depart__4E88ABD4">
+          <End Role="Departments" Type="Self.Departments" Multiplicity="1" />
+          <End Role="Brigades" Type="Self.Brigades" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Departments">
+              <PropertyRef Name="DepartmentId" />
+            </Principal>
+            <Dependent Role="Brigades">
+              <PropertyRef Name="DepartmentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__HubStatio__Route__59FA5E80">
+          <End Role="Routs" Type="Self.Routs" Multiplicity="1" />
+          <End Role="HubStations" Type="Self.HubStations" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Routs">
+              <PropertyRef Name="RouteId" />
+            </Principal>
+            <Dependent Role="HubStations">
+              <PropertyRef Name="RouteId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Inspectio__Train__5FB337D6">
+          <End Role="Trains" Type="Self.Trains" Multiplicity="1" />
+          <End Role="Inspection" Type="Self.Inspection" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Trains">
+              <PropertyRef Name="TrainId" />
+            </Principal>
+            <Dependent Role="Inspection">
+              <PropertyRef Name="TrainId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Repair__TrainId__6383C8BA">
+          <End Role="Trains" Type="Self.Trains" Multiplicity="1" />
+          <End Role="Repair" Type="Self.Repair" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Trains">
+              <PropertyRef Name="TrainId" />
+            </Principal>
+            <Dependent Role="Repair">
+              <PropertyRef Name="TrainId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TakenBack__Ticke__70DDC3D8">
+          <End Role="Tickets" Type="Self.Tickets" Multiplicity="1" />
+          <End Role="TakenBackTickets" Type="Self.TakenBackTickets" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tickets">
+              <PropertyRef Name="TicketId" />
+            </Principal>
+            <Dependent Role="TakenBackTickets">
+              <PropertyRef Name="TicketId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Tickets__BuyerId__6D0D32F4">
+          <End Role="Clients" Type="Self.Clients" Multiplicity="0..1" />
+          <End Role="Tickets" Type="Self.Tickets" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clients">
+              <PropertyRef Name="ClientId" />
+            </Principal>
+            <Dependent Role="Tickets">
+              <PropertyRef Name="BuyerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Tickets__Passage__6E01572D">
+          <End Role="TimeTable" Type="Self.TimeTable" Multiplicity="1" />
+          <End Role="Tickets" Type="Self.Tickets" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TimeTable">
+              <PropertyRef Name="PassageId" />
+            </Principal>
+            <Dependent Role="Tickets">
+              <PropertyRef Name="PassageId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Tickets__WorkerI__6C190EBB">
+          <End Role="Workers" Type="Self.Workers" Multiplicity="0..1" />
+          <End Role="Tickets" Type="Self.Tickets" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Workers">
+              <PropertyRef Name="WorkerId" />
+            </Principal>
+            <Dependent Role="Tickets">
+              <PropertyRef Name="WorkerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TimeTable__Route__6754599E">
+          <End Role="Routs" Type="Self.Routs" Multiplicity="1" />
+          <End Role="TimeTable" Type="Self.TimeTable" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Routs">
+              <PropertyRef Name="RouteId" />
+            </Principal>
+            <Dependent Role="TimeTable">
+              <PropertyRef Name="RouteId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TimeTable__Train__66603565">
+          <End Role="Trains" Type="Self.Trains" Multiplicity="1" />
+          <End Role="TimeTable" Type="Self.TimeTable" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Trains">
+              <PropertyRef Name="TrainId" />
+            </Principal>
+            <Dependent Role="TimeTable">
+              <PropertyRef Name="TrainNumber" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Trains__BrigadeI__5CD6CB2B">
+          <End Role="Brigades" Type="Self.Brigades" Multiplicity="1" />
+          <End Role="Trains" Type="Self.Trains" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Brigades">
+              <PropertyRef Name="BrigadeId" />
+            </Principal>
+            <Dependent Role="Trains">
+              <PropertyRef Name="BrigadeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Workers__Departm__4BAC3F29">
+          <End Role="Departments" Type="Self.Departments" Multiplicity="1" />
+          <End Role="Workers" Type="Self.Workers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Departments">
+              <PropertyRef Name="DepartmentId" />
+            </Principal>
+            <Dependent Role="Workers">
+              <PropertyRef Name="DepartmentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="SecondDBModelStoreContainer">
+          <EntitySet Name="Administrators" EntityType="Self.Administrators" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BrigadeMembers" EntityType="Self.BrigadeMembers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Brigades" EntityType="Self.Brigades" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Clients" EntityType="Self.Clients" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Departments" EntityType="Self.Departments" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HubStations" EntityType="Self.HubStations" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Inspection" EntityType="Self.Inspection" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Repair" EntityType="Self.Repair" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Routs" EntityType="Self.Routs" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TakenBackTickets" EntityType="Self.TakenBackTickets" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tickets" EntityType="Self.Tickets" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TimeTable" EntityType="Self.TimeTable" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Trains" EntityType="Self.Trains" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Workers" EntityType="Self.Workers" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Administr__Worke__5535A963" Association="Self.FK__Administr__Worke__5535A963">
+            <End Role="Workers" EntitySet="Workers" />
+            <End Role="Administrators" EntitySet="Administrators" />
+          </AssociationSet>
+          <AssociationSet Name="FK__BrigadeMe__Briga__5165187F" Association="Self.FK__BrigadeMe__Briga__5165187F">
+            <End Role="Brigades" EntitySet="Brigades" />
+            <End Role="BrigadeMembers" EntitySet="BrigadeMembers" />
+          </AssociationSet>
+          <AssociationSet Name="FK__BrigadeMe__Worke__52593CB8" Association="Self.FK__BrigadeMe__Worke__52593CB8">
+            <End Role="Workers" EntitySet="Workers" />
+            <End Role="BrigadeMembers" EntitySet="BrigadeMembers" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Brigades__Depart__4E88ABD4" Association="Self.FK__Brigades__Depart__4E88ABD4">
+            <End Role="Departments" EntitySet="Departments" />
+            <End Role="Brigades" EntitySet="Brigades" />
+          </AssociationSet>
+          <AssociationSet Name="FK__HubStatio__Route__59FA5E80" Association="Self.FK__HubStatio__Route__59FA5E80">
+            <End Role="Routs" EntitySet="Routs" />
+            <End Role="HubStations" EntitySet="HubStations" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Inspectio__Train__5FB337D6" Association="Self.FK__Inspectio__Train__5FB337D6">
+            <End Role="Trains" EntitySet="Trains" />
+            <End Role="Inspection" EntitySet="Inspection" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Repair__TrainId__6383C8BA" Association="Self.FK__Repair__TrainId__6383C8BA">
+            <End Role="Trains" EntitySet="Trains" />
+            <End Role="Repair" EntitySet="Repair" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TakenBack__Ticke__70DDC3D8" Association="Self.FK__TakenBack__Ticke__70DDC3D8">
+            <End Role="Tickets" EntitySet="Tickets" />
+            <End Role="TakenBackTickets" EntitySet="TakenBackTickets" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Tickets__BuyerId__6D0D32F4" Association="Self.FK__Tickets__BuyerId__6D0D32F4">
+            <End Role="Clients" EntitySet="Clients" />
+            <End Role="Tickets" EntitySet="Tickets" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Tickets__Passage__6E01572D" Association="Self.FK__Tickets__Passage__6E01572D">
+            <End Role="TimeTable" EntitySet="TimeTable" />
+            <End Role="Tickets" EntitySet="Tickets" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Tickets__WorkerI__6C190EBB" Association="Self.FK__Tickets__WorkerI__6C190EBB">
+            <End Role="Workers" EntitySet="Workers" />
+            <End Role="Tickets" EntitySet="Tickets" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TimeTable__Route__6754599E" Association="Self.FK__TimeTable__Route__6754599E">
+            <End Role="Routs" EntitySet="Routs" />
+            <End Role="TimeTable" EntitySet="TimeTable" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TimeTable__Train__66603565" Association="Self.FK__TimeTable__Train__66603565">
+            <End Role="Trains" EntitySet="Trains" />
+            <End Role="TimeTable" EntitySet="TimeTable" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Trains__BrigadeI__5CD6CB2B" Association="Self.FK__Trains__BrigadeI__5CD6CB2B">
+            <End Role="Brigades" EntitySet="Brigades" />
+            <End Role="Trains" EntitySet="Trains" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Workers__Departm__4BAC3F29" Association="Self.FK__Workers__Departm__4BAC3F29">
+            <End Role="Departments" EntitySet="Departments" />
+            <End Role="Workers" EntitySet="Workers" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="SecondDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Administrators">
+          <Key>
+            <PropertyRef Name="AdministratorId" />
+          </Key>
+          <Property Name="AdministratorId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="WorkerId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Workers" Relationship="Self.FK__Administr__Worke__5535A963" FromRole="Administrators" ToRole="Workers" />
+        </EntityType>
+        <EntityType Name="BrigadeMembers">
+          <Key>
+            <PropertyRef Name="BrigadeMembersId" />
+          </Key>
+          <Property Name="BrigadeMembersId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BrigadeId" Type="Int32" Nullable="false" />
+          <Property Name="WorkerId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Brigades" Relationship="Self.FK__BrigadeMe__Briga__5165187F" FromRole="BrigadeMembers" ToRole="Brigades" />
+          <NavigationProperty Name="Workers" Relationship="Self.FK__BrigadeMe__Worke__52593CB8" FromRole="BrigadeMembers" ToRole="Workers" />
+        </EntityType>
+        <EntityType Name="Brigades">
+          <Key>
+            <PropertyRef Name="BrigadeId" />
+          </Key>
+          <Property Name="BrigadeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DepartmentId" Type="Int32" Nullable="false" />
+          <Property Name="BrigadeName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="BrigadeMembers" Relationship="Self.FK__BrigadeMe__Briga__5165187F" FromRole="Brigades" ToRole="BrigadeMembers" />
+          <NavigationProperty Name="Departments" Relationship="Self.FK__Brigades__Depart__4E88ABD4" FromRole="Brigades" ToRole="Departments" />
+          <NavigationProperty Name="Trains" Relationship="Self.FK__Trains__BrigadeI__5CD6CB2B" FromRole="Brigades" ToRole="Trains" />
+        </EntityType>
+        <EntityType Name="Clients">
+          <Key>
+            <PropertyRef Name="ClientId" />
+          </Key>
+          <Property Name="ClientId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ClientName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Adress" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Age" Type="Int32" />
+          <Property Name="Sex" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="GivenPackage" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Tickets" Relationship="Self.FK__Tickets__BuyerId__6D0D32F4" FromRole="Clients" ToRole="Tickets" />
+        </EntityType>
+        <EntityType Name="Departments">
+          <Key>
+            <PropertyRef Name="DepartmentId" />
+          </Key>
+          <Property Name="DepartmentId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DepartmentName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Salary" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Brigades" Relationship="Self.FK__Brigades__Depart__4E88ABD4" FromRole="Departments" ToRole="Brigades" />
+          <NavigationProperty Name="Workers" Relationship="Self.FK__Workers__Departm__4BAC3F29" FromRole="Departments" ToRole="Workers" />
+        </EntityType>
+        <EntityType Name="HubStations">
+          <Key>
+            <PropertyRef Name="HubStationsId" />
+          </Key>
+          <Property Name="HubStationsId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="StationName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="RouteId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Routs" Relationship="Self.FK__HubStatio__Route__59FA5E80" FromRole="HubStations" ToRole="Routs" />
+        </EntityType>
+        <EntityType Name="Inspection">
+          <Key>
+            <PropertyRef Name="InspectionId" />
+          </Key>
+          <Property Name="InspectionId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TrainId" Type="Int32" Nullable="false" />
+          <Property Name="Inspection1" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="DateOfInspection" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="Trains" Relationship="Self.FK__Inspectio__Train__5FB337D6" FromRole="Inspection" ToRole="Trains" />
+        </EntityType>
+        <EntityType Name="Repair">
+          <Key>
+            <PropertyRef Name="RepairId" />
+          </Key>
+          <Property Name="RepairId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TrainId" Type="Int32" Nullable="false" />
+          <Property Name="Repair1" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="DateOfRepair" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="Trains" Relationship="Self.FK__Repair__TrainId__6383C8BA" FromRole="Repair" ToRole="Trains" />
+        </EntityType>
+        <EntityType Name="Routs">
+          <Key>
+            <PropertyRef Name="RouteId" />
+          </Key>
+          <Property Name="RouteId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RouteName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="StartPoint" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="LastPoint" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="RouteTime" Type="Int32" Nullable="false" />
+          <Property Name="Category" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="HubStations" Relationship="Self.FK__HubStatio__Route__59FA5E80" FromRole="Routs" ToRole="HubStations" />
+          <NavigationProperty Name="TimeTable" Relationship="Self.FK__TimeTable__Route__6754599E" FromRole="Routs" ToRole="TimeTable" />
+        </EntityType>
+        <EntityType Name="TakenBackTickets">
+          <Key>
+            <PropertyRef Name="TakenBackTicketsId" />
+          </Key>
+          <Property Name="TakenBackTicketsId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TicketId" Type="Int32" Nullable="false" />
+          <Property Name="TakenBack" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="DateWhenTakenBack" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="Tickets" Relationship="Self.FK__TakenBack__Ticke__70DDC3D8" FromRole="TakenBackTickets" ToRole="Tickets" />
+        </EntityType>
+        <EntityType Name="Tickets">
+          <Key>
+            <PropertyRef Name="TicketId" />
+          </Key>
+          <Property Name="TicketId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="WorkerId" Type="Int32" />
+          <Property Name="BuyerId" Type="Int32" />
+          <Property Name="PassageId" Type="Int32" Nullable="false" />
+          <Property Name="SoldCHeck" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="TimeOfSell" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Reservation" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Clients" Relationship="Self.FK__Tickets__BuyerId__6D0D32F4" FromRole="Tickets" ToRole="Clients" />
+          <NavigationProperty Name="TakenBackTickets" Relationship="Self.FK__TakenBack__Ticke__70DDC3D8" FromRole="Tickets" ToRole="TakenBackTickets" />
+          <NavigationProperty Name="TimeTable" Relationship="Self.FK__Tickets__Passage__6E01572D" FromRole="Tickets" ToRole="TimeTable" />
+          <NavigationProperty Name="Workers" Relationship="Self.FK__Tickets__WorkerI__6C190EBB" FromRole="Tickets" ToRole="Workers" />
+        </EntityType>
+        <EntityType Name="TimeTable">
+          <Key>
+            <PropertyRef Name="PassageId" />
+          </Key>
+          <Property Name="PassageId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TimeTableName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TrainNumber" Type="Int32" Nullable="false" />
+          <Property Name="RouteId" Type="Int32" Nullable="false" />
+          <Property Name="DepartureTime" Type="DateTime" Precision="3" />
+          <Property Name="ArrivalTime" Type="DateTime" Precision="3" />
+          <Property Name="Canceled" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="Detained" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="TicketPrice" Type="Int32" />
+          <NavigationProperty Name="Routs" Relationship="Self.FK__TimeTable__Route__6754599E" FromRole="TimeTable" ToRole="Routs" />
+          <NavigationProperty Name="Tickets" Relationship="Self.FK__Tickets__Passage__6E01572D" FromRole="TimeTable" ToRole="Tickets" />
+          <NavigationProperty Name="Trains" Relationship="Self.FK__TimeTable__Train__66603565" FromRole="TimeTable" ToRole="Trains" />
+        </EntityType>
+        <EntityType Name="Trains">
+          <Key>
+            <PropertyRef Name="TrainId" />
+          </Key>
+          <Property Name="TrainId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TrainNumber" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TrainType" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="BrigadeId" Type="Int32" Nullable="false" />
+          <Property Name="TrainAge" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Brigades" Relationship="Self.FK__Trains__BrigadeI__5CD6CB2B" FromRole="Trains" ToRole="Brigades" />
+          <NavigationProperty Name="Inspection" Relationship="Self.FK__Inspectio__Train__5FB337D6" FromRole="Trains" ToRole="Inspection" />
+          <NavigationProperty Name="Repair" Relationship="Self.FK__Repair__TrainId__6383C8BA" FromRole="Trains" ToRole="Repair" />
+          <NavigationProperty Name="TimeTable" Relationship="Self.FK__TimeTable__Train__66603565" FromRole="Trains" ToRole="TimeTable" />
+        </EntityType>
+        <EntityType Name="Workers">
+          <Key>
+            <PropertyRef Name="WorkerId" />
+          </Key>
+          <Property Name="WorkerId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="WorkerName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DepartmentId" Type="Int32" Nullable="false" />
+          <Property Name="Sex" Type="String" MaxLength="6" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Age" Type="Int32" Nullable="false" />
+          <Property Name="ChildrenCount" Type="Int32" />
+          <Property Name="Experience" Type="Int32" />
+          <NavigationProperty Name="Administrators" Relationship="Self.FK__Administr__Worke__5535A963" FromRole="Workers" ToRole="Administrators" />
+          <NavigationProperty Name="BrigadeMembers" Relationship="Self.FK__BrigadeMe__Worke__52593CB8" FromRole="Workers" ToRole="BrigadeMembers" />
+          <NavigationProperty Name="Departments" Relationship="Self.FK__Workers__Departm__4BAC3F29" FromRole="Workers" ToRole="Departments" />
+          <NavigationProperty Name="Tickets" Relationship="Self.FK__Tickets__WorkerI__6C190EBB" FromRole="Workers" ToRole="Tickets" />
+        </EntityType>
+        <Association Name="FK__Administr__Worke__5535A963">
+          <End Role="Workers" Type="Self.Workers" Multiplicity="1" />
+          <End Role="Administrators" Type="Self.Administrators" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Workers">
+              <PropertyRef Name="WorkerId" />
+            </Principal>
+            <Dependent Role="Administrators">
+              <PropertyRef Name="WorkerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__BrigadeMe__Briga__5165187F">
+          <End Role="Brigades" Type="Self.Brigades" Multiplicity="1" />
+          <End Role="BrigadeMembers" Type="Self.BrigadeMembers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Brigades">
+              <PropertyRef Name="BrigadeId" />
+            </Principal>
+            <Dependent Role="BrigadeMembers">
+              <PropertyRef Name="BrigadeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__BrigadeMe__Worke__52593CB8">
+          <End Role="Workers" Type="Self.Workers" Multiplicity="1" />
+          <End Role="BrigadeMembers" Type="Self.BrigadeMembers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Workers">
+              <PropertyRef Name="WorkerId" />
+            </Principal>
+            <Dependent Role="BrigadeMembers">
+              <PropertyRef Name="WorkerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Brigades__Depart__4E88ABD4">
+          <End Role="Departments" Type="Self.Departments" Multiplicity="1" />
+          <End Role="Brigades" Type="Self.Brigades" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Departments">
+              <PropertyRef Name="DepartmentId" />
+            </Principal>
+            <Dependent Role="Brigades">
+              <PropertyRef Name="DepartmentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Trains__BrigadeI__5CD6CB2B">
+          <End Role="Brigades" Type="Self.Brigades" Multiplicity="1" />
+          <End Role="Trains" Type="Self.Trains" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Brigades">
+              <PropertyRef Name="BrigadeId" />
+            </Principal>
+            <Dependent Role="Trains">
+              <PropertyRef Name="BrigadeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Tickets__BuyerId__6D0D32F4">
+          <End Role="Clients" Type="Self.Clients" Multiplicity="0..1" />
+          <End Role="Tickets" Type="Self.Tickets" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clients">
+              <PropertyRef Name="ClientId" />
+            </Principal>
+            <Dependent Role="Tickets">
+              <PropertyRef Name="BuyerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Workers__Departm__4BAC3F29">
+          <End Role="Departments" Type="Self.Departments" Multiplicity="1" />
+          <End Role="Workers" Type="Self.Workers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Departments">
+              <PropertyRef Name="DepartmentId" />
+            </Principal>
+            <Dependent Role="Workers">
+              <PropertyRef Name="DepartmentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__HubStatio__Route__59FA5E80">
+          <End Role="Routs" Type="Self.Routs" Multiplicity="1" />
+          <End Role="HubStations" Type="Self.HubStations" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Routs">
+              <PropertyRef Name="RouteId" />
+            </Principal>
+            <Dependent Role="HubStations">
+              <PropertyRef Name="RouteId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Inspectio__Train__5FB337D6">
+          <End Role="Trains" Type="Self.Trains" Multiplicity="1" />
+          <End Role="Inspection" Type="Self.Inspection" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Trains">
+              <PropertyRef Name="TrainId" />
+            </Principal>
+            <Dependent Role="Inspection">
+              <PropertyRef Name="TrainId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Repair__TrainId__6383C8BA">
+          <End Role="Trains" Type="Self.Trains" Multiplicity="1" />
+          <End Role="Repair" Type="Self.Repair" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Trains">
+              <PropertyRef Name="TrainId" />
+            </Principal>
+            <Dependent Role="Repair">
+              <PropertyRef Name="TrainId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TimeTable__Route__6754599E">
+          <End Role="Routs" Type="Self.Routs" Multiplicity="1" />
+          <End Role="TimeTable" Type="Self.TimeTable" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Routs">
+              <PropertyRef Name="RouteId" />
+            </Principal>
+            <Dependent Role="TimeTable">
+              <PropertyRef Name="RouteId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TakenBack__Ticke__70DDC3D8">
+          <End Role="Tickets" Type="Self.Tickets" Multiplicity="1" />
+          <End Role="TakenBackTickets" Type="Self.TakenBackTickets" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tickets">
+              <PropertyRef Name="TicketId" />
+            </Principal>
+            <Dependent Role="TakenBackTickets">
+              <PropertyRef Name="TicketId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Tickets__Passage__6E01572D">
+          <End Role="TimeTable" Type="Self.TimeTable" Multiplicity="1" />
+          <End Role="Tickets" Type="Self.Tickets" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TimeTable">
+              <PropertyRef Name="PassageId" />
+            </Principal>
+            <Dependent Role="Tickets">
+              <PropertyRef Name="PassageId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Tickets__WorkerI__6C190EBB">
+          <End Role="Workers" Type="Self.Workers" Multiplicity="0..1" />
+          <End Role="Tickets" Type="Self.Tickets" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Workers">
+              <PropertyRef Name="WorkerId" />
+            </Principal>
+            <Dependent Role="Tickets">
+              <PropertyRef Name="WorkerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TimeTable__Train__66603565">
+          <End Role="Trains" Type="Self.Trains" Multiplicity="1" />
+          <End Role="TimeTable" Type="Self.TimeTable" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Trains">
+              <PropertyRef Name="TrainId" />
+            </Principal>
+            <Dependent Role="TimeTable">
+              <PropertyRef Name="TrainNumber" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="SecondDBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Administrators" EntityType="Self.Administrators" />
+          <EntitySet Name="BrigadeMembers" EntityType="Self.BrigadeMembers" />
+          <EntitySet Name="Brigades" EntityType="Self.Brigades" />
+          <EntitySet Name="Clients" EntityType="Self.Clients" />
+          <EntitySet Name="Departments" EntityType="Self.Departments" />
+          <EntitySet Name="HubStations" EntityType="Self.HubStations" />
+          <EntitySet Name="Inspection" EntityType="Self.Inspection" />
+          <EntitySet Name="Repair" EntityType="Self.Repair" />
+          <EntitySet Name="Routs" EntityType="Self.Routs" />
+          <EntitySet Name="TakenBackTickets" EntityType="Self.TakenBackTickets" />
+          <EntitySet Name="Tickets" EntityType="Self.Tickets" />
+          <EntitySet Name="TimeTable" EntityType="Self.TimeTable" />
+          <EntitySet Name="Trains" EntityType="Self.Trains" />
+          <EntitySet Name="Workers" EntityType="Self.Workers" />
+          <AssociationSet Name="FK__Administr__Worke__5535A963" Association="Self.FK__Administr__Worke__5535A963">
+            <End Role="Workers" EntitySet="Workers" />
+            <End Role="Administrators" EntitySet="Administrators" />
+          </AssociationSet>
+          <AssociationSet Name="FK__BrigadeMe__Briga__5165187F" Association="Self.FK__BrigadeMe__Briga__5165187F">
+            <End Role="Brigades" EntitySet="Brigades" />
+            <End Role="BrigadeMembers" EntitySet="BrigadeMembers" />
+          </AssociationSet>
+          <AssociationSet Name="FK__BrigadeMe__Worke__52593CB8" Association="Self.FK__BrigadeMe__Worke__52593CB8">
+            <End Role="Workers" EntitySet="Workers" />
+            <End Role="BrigadeMembers" EntitySet="BrigadeMembers" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Brigades__Depart__4E88ABD4" Association="Self.FK__Brigades__Depart__4E88ABD4">
+            <End Role="Departments" EntitySet="Departments" />
+            <End Role="Brigades" EntitySet="Brigades" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Trains__BrigadeI__5CD6CB2B" Association="Self.FK__Trains__BrigadeI__5CD6CB2B">
+            <End Role="Brigades" EntitySet="Brigades" />
+            <End Role="Trains" EntitySet="Trains" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Tickets__BuyerId__6D0D32F4" Association="Self.FK__Tickets__BuyerId__6D0D32F4">
+            <End Role="Clients" EntitySet="Clients" />
+            <End Role="Tickets" EntitySet="Tickets" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Workers__Departm__4BAC3F29" Association="Self.FK__Workers__Departm__4BAC3F29">
+            <End Role="Departments" EntitySet="Departments" />
+            <End Role="Workers" EntitySet="Workers" />
+          </AssociationSet>
+          <AssociationSet Name="FK__HubStatio__Route__59FA5E80" Association="Self.FK__HubStatio__Route__59FA5E80">
+            <End Role="Routs" EntitySet="Routs" />
+            <End Role="HubStations" EntitySet="HubStations" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Inspectio__Train__5FB337D6" Association="Self.FK__Inspectio__Train__5FB337D6">
+            <End Role="Trains" EntitySet="Trains" />
+            <End Role="Inspection" EntitySet="Inspection" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Repair__TrainId__6383C8BA" Association="Self.FK__Repair__TrainId__6383C8BA">
+            <End Role="Trains" EntitySet="Trains" />
+            <End Role="Repair" EntitySet="Repair" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TimeTable__Route__6754599E" Association="Self.FK__TimeTable__Route__6754599E">
+            <End Role="Routs" EntitySet="Routs" />
+            <End Role="TimeTable" EntitySet="TimeTable" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TakenBack__Ticke__70DDC3D8" Association="Self.FK__TakenBack__Ticke__70DDC3D8">
+            <End Role="Tickets" EntitySet="Tickets" />
+            <End Role="TakenBackTickets" EntitySet="TakenBackTickets" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Tickets__Passage__6E01572D" Association="Self.FK__Tickets__Passage__6E01572D">
+            <End Role="TimeTable" EntitySet="TimeTable" />
+            <End Role="Tickets" EntitySet="Tickets" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Tickets__WorkerI__6C190EBB" Association="Self.FK__Tickets__WorkerI__6C190EBB">
+            <End Role="Workers" EntitySet="Workers" />
+            <End Role="Tickets" EntitySet="Tickets" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TimeTable__Train__66603565" Association="Self.FK__TimeTable__Train__66603565">
+            <End Role="Trains" EntitySet="Trains" />
+            <End Role="TimeTable" EntitySet="TimeTable" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="SecondDBModelStoreContainer" CdmEntityContainer="SecondDBEntities">
+          <EntitySetMapping Name="Administrators">
+            <EntityTypeMapping TypeName="SecondDBModel.Administrators">
+              <MappingFragment StoreEntitySet="Administrators">
+                <ScalarProperty Name="AdministratorId" ColumnName="AdministratorId" />
+                <ScalarProperty Name="WorkerId" ColumnName="WorkerId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BrigadeMembers">
+            <EntityTypeMapping TypeName="SecondDBModel.BrigadeMembers">
+              <MappingFragment StoreEntitySet="BrigadeMembers">
+                <ScalarProperty Name="BrigadeMembersId" ColumnName="BrigadeMembersId" />
+                <ScalarProperty Name="BrigadeId" ColumnName="BrigadeId" />
+                <ScalarProperty Name="WorkerId" ColumnName="WorkerId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Brigades">
+            <EntityTypeMapping TypeName="SecondDBModel.Brigades">
+              <MappingFragment StoreEntitySet="Brigades">
+                <ScalarProperty Name="BrigadeId" ColumnName="BrigadeId" />
+                <ScalarProperty Name="DepartmentId" ColumnName="DepartmentId" />
+                <ScalarProperty Name="BrigadeName" ColumnName="BrigadeName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Clients">
+            <EntityTypeMapping TypeName="SecondDBModel.Clients">
+              <MappingFragment StoreEntitySet="Clients">
+                <ScalarProperty Name="ClientId" ColumnName="ClientId" />
+                <ScalarProperty Name="ClientName" ColumnName="ClientName" />
+                <ScalarProperty Name="Adress" ColumnName="Adress" />
+                <ScalarProperty Name="Age" ColumnName="Age" />
+                <ScalarProperty Name="Sex" ColumnName="Sex" />
+                <ScalarProperty Name="GivenPackage" ColumnName="GivenPackage" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Departments">
+            <EntityTypeMapping TypeName="SecondDBModel.Departments">
+              <MappingFragment StoreEntitySet="Departments">
+                <ScalarProperty Name="DepartmentId" ColumnName="DepartmentId" />
+                <ScalarProperty Name="DepartmentName" ColumnName="DepartmentName" />
+                <ScalarProperty Name="Salary" ColumnName="Salary" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HubStations">
+            <EntityTypeMapping TypeName="SecondDBModel.HubStations">
+              <MappingFragment StoreEntitySet="HubStations">
+                <ScalarProperty Name="HubStationsId" ColumnName="HubStationsId" />
+                <ScalarProperty Name="StationName" ColumnName="StationName" />
+                <ScalarProperty Name="RouteId" ColumnName="RouteId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Inspection">
+            <EntityTypeMapping TypeName="SecondDBModel.Inspection">
+              <MappingFragment StoreEntitySet="Inspection">
+                <ScalarProperty Name="InspectionId" ColumnName="InspectionId" />
+                <ScalarProperty Name="TrainId" ColumnName="TrainId" />
+                <ScalarProperty Name="Inspection1" ColumnName="Inspection" />
+                <ScalarProperty Name="DateOfInspection" ColumnName="DateOfInspection" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Repair">
+            <EntityTypeMapping TypeName="SecondDBModel.Repair">
+              <MappingFragment StoreEntitySet="Repair">
+                <ScalarProperty Name="RepairId" ColumnName="RepairId" />
+                <ScalarProperty Name="TrainId" ColumnName="TrainId" />
+                <ScalarProperty Name="Repair1" ColumnName="Repair" />
+                <ScalarProperty Name="DateOfRepair" ColumnName="DateOfRepair" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Routs">
+            <EntityTypeMapping TypeName="SecondDBModel.Routs">
+              <MappingFragment StoreEntitySet="Routs">
+                <ScalarProperty Name="RouteId" ColumnName="RouteId" />
+                <ScalarProperty Name="RouteName" ColumnName="RouteName" />
+                <ScalarProperty Name="StartPoint" ColumnName="StartPoint" />
+                <ScalarProperty Name="LastPoint" ColumnName="LastPoint" />
+                <ScalarProperty Name="RouteTime" ColumnName="RouteTime" />
+                <ScalarProperty Name="Category" ColumnName="Category" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TakenBackTickets">
+            <EntityTypeMapping TypeName="SecondDBModel.TakenBackTickets">
+              <MappingFragment StoreEntitySet="TakenBackTickets">
+                <ScalarProperty Name="TakenBackTicketsId" ColumnName="TakenBackTicketsId" />
+                <ScalarProperty Name="TicketId" ColumnName="TicketId" />
+                <ScalarProperty Name="TakenBack" ColumnName="TakenBack" />
+                <ScalarProperty Name="DateWhenTakenBack" ColumnName="DateWhenTakenBack" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tickets">
+            <EntityTypeMapping TypeName="SecondDBModel.Tickets">
+              <MappingFragment StoreEntitySet="Tickets">
+                <ScalarProperty Name="TicketId" ColumnName="TicketId" />
+                <ScalarProperty Name="WorkerId" ColumnName="WorkerId" />
+                <ScalarProperty Name="BuyerId" ColumnName="BuyerId" />
+                <ScalarProperty Name="PassageId" ColumnName="PassageId" />
+                <ScalarProperty Name="SoldCHeck" ColumnName="SoldCHeck" />
+                <ScalarProperty Name="TimeOfSell" ColumnName="TimeOfSell" />
+                <ScalarProperty Name="Reservation" ColumnName="Reservation" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TimeTable">
+            <EntityTypeMapping TypeName="SecondDBModel.TimeTable">
+              <MappingFragment StoreEntitySet="TimeTable">
+                <ScalarProperty Name="PassageId" ColumnName="PassageId" />
+                <ScalarProperty Name="TimeTableName" ColumnName="TimeTableName" />
+                <ScalarProperty Name="TrainNumber" ColumnName="TrainNumber" />
+                <ScalarProperty Name="RouteId" ColumnName="RouteId" />
+                <ScalarProperty Name="DepartureTime" ColumnName="DepartureTime" />
+                <ScalarProperty Name="ArrivalTime" ColumnName="ArrivalTime" />
+                <ScalarProperty Name="Canceled" ColumnName="Canceled" />
+                <ScalarProperty Name="Detained" ColumnName="Detained" />
+                <ScalarProperty Name="TicketPrice" ColumnName="TicketPrice" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Trains">
+            <EntityTypeMapping TypeName="SecondDBModel.Trains">
+              <MappingFragment StoreEntitySet="Trains">
+                <ScalarProperty Name="TrainId" ColumnName="TrainId" />
+                <ScalarProperty Name="TrainNumber" ColumnName="TrainNumber" />
+                <ScalarProperty Name="TrainType" ColumnName="TrainType" />
+                <ScalarProperty Name="BrigadeId" ColumnName="BrigadeId" />
+                <ScalarProperty Name="TrainAge" ColumnName="TrainAge" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Workers">
+            <EntityTypeMapping TypeName="SecondDBModel.Workers">
+              <MappingFragment StoreEntitySet="Workers">
+                <ScalarProperty Name="WorkerId" ColumnName="WorkerId" />
+                <ScalarProperty Name="WorkerName" ColumnName="WorkerName" />
+                <ScalarProperty Name="DepartmentId" ColumnName="DepartmentId" />
+                <ScalarProperty Name="Sex" ColumnName="Sex" />
+                <ScalarProperty Name="Age" ColumnName="Age" />
+                <ScalarProperty Name="ChildrenCount" ColumnName="ChildrenCount" />
+                <ScalarProperty Name="Experience" ColumnName="Experience" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,64 @@
+﻿@model IEnumerable<courseworkv5.Tickets>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Tickets</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.SoldCHeck)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TimeOfSell)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Reservation)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Clients.ClientName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TimeTable.TimeTableName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Workers.WorkerName)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.SoldCHeck)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TimeOfSell)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Reservation)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Clients.ClientName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TimeTable.TimeTableName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Workers.WorkerName)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.TicketId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.TicketId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.TicketId })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,69 @@
+﻿@{
+    ViewBag.Title = "Contact";
+}
+<body>
+    <div class="row" align="center">
+        <br />
+        <div style="padding:10px 10px 10px 10px;">
+            <button class="btn btn-default" style="width:600px;" id="01" onclick='location.href = "@Url.Action("SearchChildAll", "Home")"'>1. Вивести всю інформацію про тих працівників, у яких кількість дітей більше n</button>
+        </div>
+        <div style="padding:10px 10px 10px 10px;">
+            <button class="btn btn-default" style="width:600px;" id="02" onclick='location.href = "@Url.Action("WorkersAdmins", "Home")"'>2. Вивести інформацію про працівників-адміністраторів</button>
+        </div>
+        <div style="padding:10px 10px 10px 10px;">
+            <button class="btn btn-default" style="width:600px;" id="03" onclick='location.href = "@Url.Action("WorkersAdminsCount", "Home")"'>3. Вивести кількість працівників і кількість адміністраторів</button>
+        </div>
+        <div style="padding:10px 10px 10px 10px;">
+            <button class="btn btn-default" style="width:600px;" id="04" onclick='location.href = "@Url.Action("WorkersBrigadesAll", "Home")"'>4. Вивести інформацію про працівників за бригадою</button>
+        </div>
+        <div style="padding:10px 10px 10px 10px;">
+            НАЧІНАЄМ
+            <button class="btn btn-default" style="width:600px;" id="05" onclick='location.href = "@Url.Action("Index", "Administrators")"'>5. Вивести інформацію про працівників за відділом</button>
+        </div>
+        <div style="padding:10px 10px 10px 10px;">
+            <button class="btn btn-default" style="width:600px;" id="06" onclick='location.href = "@Url.Action("Index", "Routs")"'>6. Вивести кількість працівників в бригаді та у відділі</button>
+        </div>
+        <div style="padding:10px 10px 10px 10px;">
+            <button class="btn btn-default" style="width:600px;" id="07" onclick='location.href = "@Url.Action("Index", "HubStations")"'>7. Вивести інформацію про потяги за їх інспекцією</button>
+        </div>
+        <div style="padding:10px 10px 10px 10px;">
+            <button class="btn btn-default" style="width:600px;" id="08" onclick='location.href = "@Url.Action("Index", "Trains")"'>8. Вивести інформацію про потяги за їх ремонтом</button>
+        </div>
+        <div style="padding:10px 10px 10px 10px;">
+            <button class="btn btn-default" style="width:600px;" id="09" onclick='location.href = "@Url.Action("Index", "Repairs")"'>9. Вивести інформацію про потяги за їх віком</button>
+        </div>
+        <div style="padding:10px 10px 10px 10px;">
+            <button class="btn btn-default" style="width:600px;" id="10" onclick='location.href = "@Url.Action("Index", "Inspections")"'>10. Вивести інформацію про потяги за маршрутами</button>
+        </div>
+        <div style="padding:10px 10px 10px 10px;">
+            <button class="btn btn-default" style="width:600px;" id="11" onclick='location.href = "@Url.Action("Index", "Clients")"'>11. Вивести інфомацію про маршрути за ціною квитка</button>
+        </div>
+        <div style="padding:10px 10px 10px 10px;">
+            <button class="btn btn-default" style="width:600px;" id="12" onclick='location.href = "@Url.Action("Index", "TimeTables")"'>12. Вивести інформацію про маршрути за їх тривалістю</button>
+        </div>
+        <div style="padding:10px 10px 10px 10px;">
+            <button class="btn btn-default" style="width:600px;" id="13" onclick='location.href = "@Url.Action("Index", "Tickets")"'>13. Вивести перелік скасованих рейсів</button>
+        </div>
+        <div style="padding:10px 10px 10px 10px;">
+            <button class="btn btn-default" style="width:600px;" id="14" onclick='location.href = "@Url.Action("Index", "TakenBackTickets")"'>14. Вивести перелік скасованих рейсів у обраному маршруті</button>
+        </div>
+        <div style="padding:10px 10px 10px 10px;">
+            <button class="btn btn-default" style="width:600px;" id="15" onclick='location.href = "@Url.Action("Index", "TakenBackTickets")"'>15. Вивести перелік затриманих рейсів </button>
+        </div>
+        <div style="padding:10px 10px 10px 10px;">
+            <button class="btn btn-default" style="width:600px;" id="16" onclick='location.href = "@Url.Action("Index", "TakenBackTickets")"'>16. Вивести перелік затриманих рейсів у обраному маршруті</button>
+        </div>
+        <div style="padding:10px 10px 10px 10px;">
+            <button class="btn btn-default" style="width:600px;" id="17" onclick='location.href = "@Url.Action("Index", "TakenBackTickets")"'>17. Вивести перелік маршрутів за ціною квитка</button>
+        </div>
+        <div style="padding:10px 10px 10px 10px;">
+            <button class="btn btn-default" style="width:600px;" id="18" onclick='location.href = "@Url.Action("Index", "TakenBackTickets")"'>18. Вивести перелік маршрутів за тривалістю маршруту</button>
+        </div>
+        <div style="padding:10px 10px 10px 10px;">
+            <button class="btn btn-default" style="width:600px;" id="19" onclick='location.href = "@Url.Action("Index", "TakenBackTickets")"'>19. Вивести перелік пасажирів за віком</button>
+        </div>
+        <div style="padding:10px 10px 10px 10px;">
+            <button class="btn btn-default" style="width:600px;" id="20" onclick='location.href = "@Url.Action("Index", "TakenBackTickets")"'>20. Вивести перелік пасажирів за ознакою здачі речей в багажне відділення</button>
+        </div>
+    </div>
+</body>

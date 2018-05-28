@@ -1,0 +1,40 @@
+﻿@model IEnumerable<courseworkv5.Brigades>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Brigades</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.BrigadeName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Departments.DepartmentName)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.BrigadeName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Departments.DepartmentName)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.BrigadeId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.BrigadeId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.BrigadeId })
+        </td>
+    </tr>
+}
+
+</table>

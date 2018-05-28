@@ -1,0 +1,58 @@
+﻿@model IEnumerable<courseworkv5.Routs>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Routs</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.RouteName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StartPoint)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LastPoint)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RouteTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Category)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.RouteName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.StartPoint)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LastPoint)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RouteTime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Category)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.RouteId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.RouteId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.RouteId })
+        </td>
+    </tr>
+}
+
+</table>

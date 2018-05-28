@@ -1,0 +1,35 @@
+﻿@model courseworkv5.BrigadeMembers
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>BrigadeMembers</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Brigades.BrigadeName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Brigades.BrigadeName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Workers.WorkerName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Workers.WorkerName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.BrigadeMembersId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

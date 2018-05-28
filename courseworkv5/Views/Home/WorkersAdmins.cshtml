@@ -1,0 +1,41 @@
+﻿@model IEnumerable<courseworkv5.Workers>
+
+@{
+    ViewBag.Title = "WorkersAdmins";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Вивести інформацію про працівників-адміністраторів</h2>
+
+
+<h4>Працівники:</h4>
+<div align="center">
+    <table class="table table-striped">
+        <tr>
+            <th>WorkerId</th>
+            <th>WorkerName</th>
+            <th>Department</th>
+            <th>Gender</th>
+            <th>Age</th>
+            <th>ChildrenCount</th>
+            <th>Experience</th>
+        </tr>
+        <tbody>
+</div>
+@{
+    foreach (var w in Model)
+    {
+        <tr>
+            <td>@w.WorkerId</td>
+            <td>@w.WorkerName</td>
+            <td>@w.DepartmentId</td>
+            <td>@w.Sex</td>
+            <td>@w.Age</td>
+            <td>@w.ChildrenCount</td>
+            <td>@w.Experience</td>
+        </tr>
+    }
+}
+    </tbody>
+    </table>
+</div>

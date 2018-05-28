@@ -1,0 +1,83 @@
+﻿@model courseworkv5.TimeTable
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>TimeTable</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TimeTableName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TimeTableName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DepartureTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DepartureTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ArrivalTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ArrivalTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Canceled)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Canceled)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Detained)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Detained)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TicketPrice)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TicketPrice)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Routs.RouteName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Routs.RouteName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Trains.TrainNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Trains.TrainNumber)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.PassageId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,33 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+<body>
+    <div class="row" align="center">
+        <br /><br /><br />
+        <div style="padding:10px 10px 10px 10px;">
+            <button class="btn btn-default" style="width:200px;" id="departmentBtn" onclick='location.href = "@Url.Action("Index", "Departments")"'> Відділи</button> &nbsp; &nbsp;
+            <button class="btn btn-default" style="width:200px;" id="workersBtn" onclick='location.href = "@Url.Action("Index", "Workers")"'> Працівники</button>&nbsp; &nbsp;
+            <button class="btn btn-default" style="width:200px;" id="brigadesBtn" onclick='location.href = "@Url.Action("Index", "Brigades")"'> Бригади</button>&nbsp;
+        </div>
+        <div style="padding:10px 10px 10px 10px;">
+            <button class="btn btn-default" style="width:200px;" id="brigadeMembersBtn" onclick='location.href = "@Url.Action("Index", "BrigadeMembers")"'> Учасники бригад</button>&nbsp;&nbsp;
+            <button class="btn btn-default" style="width:200px;" id="administrationBtn" onclick='location.href = "@Url.Action("Index", "Administrators")"'> Адміністрація</button>&nbsp; &nbsp;
+            <button class="btn btn-default" style="width:200px;" id="routBtn" onclick='location.href = "@Url.Action("Index", "Routs")"'> Маршрут</button>&nbsp;
+        </div>
+        <div style="padding:10px 10px 10px 10px;">
+            <button class="btn btn-default" style="width:200px;" id="hubsBtn" onclick='location.href = "@Url.Action("Index", "HubStations")"'> Проміжні станції</button>&nbsp; &nbsp;
+            <button class="btn btn-default" style="width:200px;" id="trainsBtn" onclick='location.href = "@Url.Action("Index", "Trains")"'> Потяги</button>&nbsp; &nbsp;
+            <button class="btn btn-default" style="width:200px;" id="repairBtn" onclick='location.href = "@Url.Action("Index", "Repairs")"'> Ремонт</button>&nbsp;
+        </div>
+        <div style="padding:10px 10px 10px 10px;">
+            <button class="btn btn-default" style="width:200px;" id="inspectionBtn" onclick='location.href = "@Url.Action("Index", "Inspections")"'> Техогляд</button>&nbsp; &nbsp;
+            <button class="btn btn-default" style="width:200px;" id="clientsBtn" onclick='location.href = "@Url.Action("Index", "Clients")"'> Клієнти</button>&nbsp; &nbsp;
+            <button class="btn btn-default" style="width:200px;" id="ttableBtn" onclick='location.href = "@Url.Action("Index", "TimeTables")"'> Розклад</button>&nbsp;
+        </div>
+        <div style="padding:10px 10px 10px 10px;">
+            <button class="btn btn-default" style="width:200px;" id="ticketsBtn" onclick='location.href = "@Url.Action("Index", "Tickets")"'> Квитки</button>&nbsp; &nbsp;
+            <button class="btn btn-default" style="width:200px;" id="tbticketsBtn" onclick='location.href = "@Url.Action("Index", "TakenBackTickets")"'> Повернені квитки</button>&nbsp; &nbsp;
+        </div>
+    </div>
+</body>

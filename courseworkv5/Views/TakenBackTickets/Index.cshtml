@@ -1,0 +1,46 @@
+﻿@model IEnumerable<courseworkv5.TakenBackTickets>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Taken Back Tickets</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.TakenBack)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateWhenTakenBack)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Tickets.SoldCHeck)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.TakenBack)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateWhenTakenBack)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Tickets.SoldCHeck)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.TakenBackTicketsId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.TakenBackTicketsId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.TakenBackTicketsId })
+        </td>
+    </tr>
+}
+
+</table>

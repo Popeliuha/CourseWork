@@ -1,0 +1,51 @@
+﻿
+@{
+    ViewBag.Title = "SearchChildAll";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model IEnumerable<courseworkv5.Workers>
+
+<body>
+    <div align="center">
+        <table class="table table-striped">
+            <tr>
+                <th>WorkerId</th>
+                <th>WorkerName</th>
+                <th>Department</th>
+                <th>Sex</th>
+                <th>Age</th>
+                <th>ChildrenCount</th>
+                <th>Experience</th>
+            </tr>
+            <tbody>
+                <form method="post" action="SearchChild">
+                    <div>
+                        Вивести всю інформацію про тих працівників, у яких кількість дітей більше n.
+                        <input type="text" id="childrenCount" name="childrenCount" value="0" />
+                        <input type="submit" value="Send" />
+                </form>
+    </div>
+    @{
+            foreach (var w in Model)
+            {
+                <tr>
+                    <td>@w.WorkerId</td>
+                    <td>@w.WorkerName</td>
+                    <td>@w.DepartmentId</td>
+                    <td>@w.Sex</td>
+                    <td>@w.Age</td>
+                    <td>@w.ChildrenCount</td>
+                    <td>@w.Experience</td>
+                </tr>
+            }
+        }
+    
+
+    </tbody>
+    </table>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+    <script src="script.js"></script>
+
+</body>
+
