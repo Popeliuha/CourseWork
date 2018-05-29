@@ -1,0 +1,35 @@
+﻿@model IEnumerable<courseworkv5.Trains>
+
+@{
+    ViewBag.Title = "Request 19";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div>
+    <h2>Вивести інформацію про потяги за бригадою.</h2>
+
+
+    <h4>Потяги:</h4>
+    <table class="table table-striped">
+        <tr>
+            <th>TrainId</th>
+            <th>TrainNumber</th>
+            <th>TrainType</th>
+            <th>TrainAge</th>
+            <th>Brigade Id</th>
+        </tr>
+        <tbody>
+            @{
+                foreach (var t in Model)
+                {
+                    <tr>
+                        <td>@t.TrainId</td>
+                        <td>@t.TrainNumber</td>
+                        <td>@t.TrainType</td>
+                        <td>@t.TrainAge</td>
+                        <td>@t.BrigadeId</td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+</div>

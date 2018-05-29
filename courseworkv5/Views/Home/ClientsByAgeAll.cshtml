@@ -1,0 +1,52 @@
+﻿
+@{
+    ViewBag.Title = "Request 17";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model IEnumerable<courseworkv5.Clients>
+
+<body>
+    <div align="center">
+        <table class="table table-striped">
+            <tr>
+                <th>Client Id</th>
+                <th>Client Name</th>
+                <th>Adress</th>
+                <th>Gender</th>
+                <th>Age</th>
+            </tr>
+            <tbody>
+                <form method="post" action="ClientsByAge">
+                    <h4>Вивести клієнтів за віком, більше :</h4>
+                    <select name="age">
+                        <option value="10">10 років</option>
+                        <option value="15">15 років</option>
+                        <option value="20">20 років</option>
+                        <option value="30">30 років</option>
+                        <option value="40">40 років</option>
+                        <option value="50">50 років</option>
+                    </select>
+                    <input type="submit" value="Send" />
+                </form>
+                @{
+                    foreach (var t in Model)
+                    {
+                        <tr>
+                            <td>@t.ClientId</td>
+                            <td>@t.ClientName</td>
+                            <td>@t.Adress</td>
+                            <td>@t.Sex</td>
+                            <td>@t.Age</td>
+                        </tr>
+                    }
+                }
+
+
+            </tbody>
+        </table>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+    <script src="script.js"></script>
+
+</body>
+

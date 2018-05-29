@@ -1,6 +1,6 @@
 ﻿
 @{
-    ViewBag.Title = "SearchChildAll";
+    ViewBag.Title = "Request 4";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 @model IEnumerable<courseworkv5.Workers>
@@ -19,10 +19,8 @@
             </tr>
             <tbody>
                 <form method="post" action="WorkersBrigades">
-                    <div>
-                        Вивести інформацію про працівників за бригадою.
+                    <h4>Вивести інформацію про працівників за бригадою.</h4>
                         <select name="brigadeId">
-                            <option value="0">0</option>
                             <option value="1">1</option>
                             <option value="2">2</option>
                             <option value="3">3</option>
@@ -33,8 +31,7 @@
                             <option value="8">8</option>
                         </select>
                         <input type="submit" value="Send" />
-</form>
-    </div>
+                </form>
     @{
         foreach (var w in Model)
         {

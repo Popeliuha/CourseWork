@@ -256,6 +256,7 @@
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\WorkersBrigadesViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repair.cs">
       <DependentUpon>DataBase.tt</DependentUpon>
@@ -431,6 +432,36 @@
     <Content Include="Views\Home\WorkersAdminsCount.cshtml" />
     <Content Include="Views\Home\WorkersBrigades.cshtml" />
     <Content Include="Views\Home\WorkersBrigadesAll.cshtml" />
+    <Content Include="Views\Home\WorkersDepartments.cshtml" />
+    <Content Include="Views\Home\WorkersDepartmentsAll.cshtml" />
+    <Content Include="Views\Home\WorkersInBrigadeCountAll.cshtml" />
+    <Content Include="Views\Home\WorkersInBrigadeCount.cshtml" />
+    <Content Include="Views\Home\WorkersInDepartmentCount.cshtml" />
+    <Content Include="Views\Home\WorkersInDepartmentCountAll.cshtml" />
+    <Content Include="Views\Home\TrainsByInspectionAll.cshtml" />
+    <Content Include="Views\Home\TrainsByInspection.cshtml" />
+    <Content Include="Views\Home\TrainsByRepair.cshtml" />
+    <Content Include="Views\Home\TrainsByRepairAll.cshtml" />
+    <Content Include="Views\Home\TrainsByAge.cshtml" />
+    <Content Include="Views\Home\TrainsByAgeAll.cshtml" />
+    <Content Include="Views\Home\TimeTableByPrice.cshtml" />
+    <Content Include="Views\Home\TimeTableByPriceAll.cshtml" />
+    <Content Include="Views\Home\TimeTableCanceledAll.cshtml" />
+    <Content Include="Views\Home\TimeTableDetainedAll.cshtml" />
+    <Content Include="Views\Home\TimeTableCanceledByRoutsAll.cshtml" />
+    <Content Include="Views\Home\TimeTableCanceledByRouts.cshtml" />
+    <Content Include="Views\Home\TimeTableDetainedByRoutsAll.cshtml" />
+    <Content Include="Views\Home\TimeTableDetainedByRouts.cshtml" />
+    <Content Include="Views\Home\RoutsByTimeAll.cshtml" />
+    <Content Include="Views\Home\RoutsByTime.cshtml" />
+    <Content Include="Views\Home\ClientsByAgeAll.cshtml" />
+    <Content Include="Views\Home\ClientsByAge.cshtml" />
+    <Content Include="Views\Home\ClientsByPackageAll.cshtml" />
+    <Content Include="Views\Home\ClientsByPackage.cshtml" />
+    <Content Include="Views\Home\TrainsByBrigade.cshtml" />
+    <Content Include="Views\Home\TrainsByBrigadeAll.cshtml" />
+    <Content Include="Views\Home\TicketsThatTakenBackAll.cshtml" />
+    <Content Include="Views\Home\Title.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

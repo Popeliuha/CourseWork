@@ -1,0 +1,46 @@
+﻿@model IEnumerable<courseworkv5.Workers>
+
+@{
+    ViewBag.Title = "Request 5";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Вивести інформацію про працівників за відділом.</h2>
+
+
+<h4>Працівники:</h4>
+<div align="center">
+    <table class="table table-striped">
+        <tr>
+            <th>Worker Id</th>
+            <th>Worker Name</th>
+            <th>Gender</th>
+            <th>Age</th>
+            <th>Children Count</th>
+            <th>Experience</th>
+            <th>Department Id</th>
+            <th>Department Name</th>
+        </tr>
+        <tbody>
+</div>
+@{
+    foreach (var w in Model)
+    {
+<tr>
+    <td>@w.WorkerId</td>
+    <td>@w.WorkerName</td>
+    <td>@w.Sex</td>
+    <td>@w.Age</td>
+    <td>@w.ChildrenCount</td>
+    <td>@w.Experience</td>
+    <td>@w.DepartmentId</td>
+    <td>@w.Departments.DepartmentName</td>
+
+    @*<td>@w.BrigadeMembers.First(c => c.WorkerId == w.WorkerId).Brigades.BrigadeName</td>*@
+
+</tr>
+    }
+}
+    </tbody>
+    </table>
+</div>

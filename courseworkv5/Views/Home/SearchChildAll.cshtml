@@ -1,6 +1,6 @@
 ﻿
 @{
-    ViewBag.Title = "SearchChildAll";
+    ViewBag.Title = "Request 1";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 @model IEnumerable<courseworkv5.Workers>
@@ -20,7 +20,7 @@
             <tbody>
                 <form method="post" action="SearchChild">
                     <div>
-                        Вивести всю інформацію про тих працівників, у яких кількість дітей більше n.
+                        <h4>Вивести всю інформацію про тих працівників, у яких кількість дітей більше n.</h4>
                         <input type="text" id="childrenCount" name="childrenCount" value="0" />
                         <input type="submit" value="Send" />
                 </form>

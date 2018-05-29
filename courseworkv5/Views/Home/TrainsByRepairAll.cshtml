@@ -1,0 +1,46 @@
+﻿
+@{
+    ViewBag.Title = "Request 9";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model IEnumerable<courseworkv5.Trains>
+
+<body>
+    <div align="center">
+        <table class="table table-striped">
+            <tr>
+                <th>TrainId</th>
+                <th>TrainNumber</th>
+                <th>TrainType</th>
+                <th>TrainAge</th>
+            </tr>
+            <tbody>
+                <form method="post" action="TrainsByRepair">
+                    <h4>Вивести інформацію про потяги за їх ремонт.</h4>
+                    <select name="repairType">
+                        <option value="так">так</option>
+                        <option value="ні">ні</option>
+                    </select>
+                    <input type="submit" value="Send" />
+                </form>
+                @{
+                    foreach (var t in Model)
+                    {
+                        <tr>
+                            <td>@t.TrainId</td>
+                            <td>@t.TrainNumber</td>
+                            <td>@t.TrainType</td>
+                            <td>@t.TrainAge</td>
+                        </tr>
+                    }
+                }
+
+
+            </tbody>
+        </table>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+    <script src="script.js"></script>
+
+</body>
+

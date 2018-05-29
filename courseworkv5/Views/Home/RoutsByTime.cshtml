@@ -1,0 +1,41 @@
+﻿
+@{
+    ViewBag.Title = "Request 16";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model IEnumerable<courseworkv5.Routs>
+
+<body>
+    <div align="center">
+
+
+        <h2>Вивести інформацію про маршрути за тривалістю.</h2>
+
+        <h4>Маршрути:</h4>
+        <table class="table table-striped">
+            <tr>
+                <th>Route Id</th>
+                <th>Route Name</th>
+                <th>Route Time</th>
+                <th>Category</th>
+            </tr>
+            <tbody>
+                @{
+                    foreach (var t in Model)
+                    {
+                <tr>
+                    <td>@t.RouteId</td>
+                    <td>@t.RouteName</td>
+                    <td>@t.RouteTime</td>
+                    <td>@t.Category</td>
+                </tr>
+                    }
+                }
+            </tbody>
+        </table>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+    <script src="script.js"></script>
+
+</body>
+

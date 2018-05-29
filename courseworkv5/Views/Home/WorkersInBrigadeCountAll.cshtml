@@ -1,0 +1,56 @@
+﻿
+@{
+    ViewBag.Title = "Request 6";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model IEnumerable<courseworkv5.Workers>
+
+<body>
+    <div align="center">
+        <table class="table table-striped">
+            <tr>
+                <th>WorkerId</th>
+                <th>WorkerName</th>
+                <th>Department</th>
+                <th>Sex</th>
+                <th>Age</th>
+                <th>Experience</th>
+            </tr>
+            <tbody>
+                <form method="post" action="WorkersInBrigadeCount">
+                    <h4>Вивести кількість працівників у бригаді.</h4>
+                    <select name="brigadeId">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                    </select>
+                    <input type="submit" value="Send" />
+                </form>
+                @{
+                    foreach (var w in Model)
+                    {
+                        <tr>
+                            <td>@w.WorkerId</td>
+                            <td>@w.WorkerName</td>
+                            <td>@w.DepartmentId</td>
+                            <td>@w.Sex</td>
+                            <td>@w.Age</td>
+                            <td>@w.Experience</td>
+                        </tr>
+                    }
+                }
+
+
+            </tbody>
+        </table>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+    <script src="script.js"></script>
+
+</body>
+

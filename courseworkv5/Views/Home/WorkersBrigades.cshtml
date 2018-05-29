@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<courseworkv5.Workers>
 
 @{
-    ViewBag.Title = "SearchChild";
+    ViewBag.Title = "Request 4";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -19,21 +19,26 @@
             <th>Age</th>
             <th>ChildrenCount</th>
             <th>Experience</th>
+            <th>Brigade name</th>
+            <th>Brigade id</th>
         </tr>
         <tbody>
 </div>
 @{
     foreach (var w in Model)
     {
-        <tr>
-            <td>@w.WorkerId</td>
-            <td>@w.WorkerName</td>
-            <td>@w.DepartmentId</td>
-            <td>@w.Sex</td>
-            <td>@w.Age</td>
-            <td>@w.ChildrenCount</td>
-            <td>@w.Experience</td>
-        </tr>
+<tr>
+    <td>@w.WorkerId</td>
+    <td>@w.WorkerName</td>
+    <td>@w.DepartmentId</td>
+    <td>@w.Sex</td>
+    <td>@w.Age</td>
+    <td>@w.ChildrenCount</td>
+    <td>@w.Experience</td>
+    <td>@w.BrigadeMembers.First(c => c.WorkerId == w.WorkerId).Brigades.BrigadeName</td>
+    <td>@w.BrigadeMembers.First(c => c.WorkerId == w.WorkerId).Brigades.BrigadeId</td>
+
+</tr>
     }
 }
     </tbody>

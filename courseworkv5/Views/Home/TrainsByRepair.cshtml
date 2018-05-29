@@ -1,0 +1,37 @@
+﻿@model IEnumerable<courseworkv5.Trains>
+
+@{
+    ViewBag.Title = "Request 9";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div>
+    <h2>Вивести інформацію про потяги за їх ремонтом.</h2>
+
+
+    <h4>Потяги:</h4>
+    <table class="table table-striped">
+        <tr>
+            <th>TrainId</th>
+            <th>TrainNumber</th>
+            <th>TrainType</th>
+            <th>TrainAge</th>
+            <th>Repair</th>
+        </tr>
+        <tbody>
+            @{
+                foreach (var t in Model)
+                {
+                    <tr>
+                        <td>@t.TrainId</td>
+                        <td>@t.TrainNumber</td>
+                        <td>@t.TrainType</td>
+                        <td>@t.TrainAge</td>
+                        <td>@t.Repair.First(c => c.TrainId == t.TrainId).Repair1</td>
+                        @*<td>@w.BrigadeMembers.First(c => c.WorkerId == w.WorkerId).Brigades.BrigadeName</td>
+                            <td>@w.BrigadeMembers.First(c => c.WorkerId == w.WorkerId).Brigades.BrigadeId</td>*@
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+</div>

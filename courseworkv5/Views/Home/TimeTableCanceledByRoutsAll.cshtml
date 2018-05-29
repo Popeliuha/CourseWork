@@ -1,0 +1,51 @@
+﻿
+@{
+    ViewBag.Title = "Request 14";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model IEnumerable<courseworkv5.TimeTable>
+
+<body>
+    <div align="center">
+        <h2>Список скасованих рейсів у обраному маршруті. </h2>
+        <form method="post" action="TimeTableCanceledByRouts">
+            <h4>Оберіть маршрут:</h4>
+            <select name="routId">
+                <option value="1">Чернівці-Львів</option>
+                <option value="2">Мадрид-Рим</option>
+                <option value="3">Київ-Харків</option>
+                <option value="4">Цюрюпінськ-Кобила</option>
+            </select>
+            <input type="submit" value="Send" />
+        </form>
+            <table class="table table-striped">
+                <tr>
+                    <th>Passage Id</th>
+                    <th>TimeTable Name</th>
+                    <th>Train Number</th>
+                    <th>Ticket Price</th>
+                    <th>Canceled</th>
+                </tr>
+        <tbody>
+            @{
+                foreach (var t in Model)
+                {
+                    <tr>
+                        <td>@t.PassageId</td>
+                        <td>@t.TimeTableName</td>
+                        <td>@t.TrainNumber</td>
+                        <td>@t.TicketPrice</td>
+                        <td>@t.Canceled</td>
+                    </tr>
+                }
+            }
+
+
+        </tbody>
+        </table>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+    <script src="script.js"></script>
+
+</body>
+

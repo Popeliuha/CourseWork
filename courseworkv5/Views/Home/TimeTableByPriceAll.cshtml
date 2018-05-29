@@ -1,0 +1,50 @@
+﻿
+@{
+    ViewBag.Title = "Request 11";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model IEnumerable<courseworkv5.TimeTable>
+
+<body>
+    <div align="center">
+        <table class="table table-striped">
+            <tr>
+                <th>Passage Id</th>
+                <th>TimeTable Name</th>
+                <th>Train Number</th>
+                <th>Ticket Price</th>
+            </tr>
+            <tbody>
+                <form method="post" action="TimeTableByPrice">
+                    <h4>Вивести маршрути за ціною, більше :</h4>
+                    <select name="ticketPrice">
+                        <option value="1">1</option>
+                        <option value="50">50</option>
+                        <option value="100">100</option>
+                        <option value="500">500</option>
+                        <option value="1000">1000</option>
+                        <option value="5000">5000</option>
+                    </select>
+                    <input type="submit" value="Send" />
+                </form>
+                @{
+                    foreach (var t in Model)
+                    {
+                        <tr>
+                            <td>@t.PassageId</td>
+                            <td>@t.TimeTableName</td>
+                            <td>@t.TrainNumber</td>
+                            <td>@t.TicketPrice</td>
+                        </tr>
+                    }
+                }
+
+
+            </tbody>
+        </table>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+    <script src="script.js"></script>
+
+</body>
+

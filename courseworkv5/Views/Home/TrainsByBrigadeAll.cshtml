@@ -1,0 +1,52 @@
+﻿
+@{
+    ViewBag.Title = "Request 19";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model IEnumerable<courseworkv5.Trains>
+
+<body>
+    <div align="center">
+        <table class="table table-striped">
+            <tr>
+                <th>TrainId</th>
+                <th>TrainNumber</th>
+                <th>TrainType</th>
+                <th>TrainAge</th>
+            </tr>
+            <tbody>
+                <form method="post" action="TrainsByBrigade">
+                    <h4>Вивести інформацію про потяги за бригадою з ID :</h4> 
+                    <select name="brigadeId">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                    </select>
+                    <input type="submit" value="Send" />
+                </form>
+                @{
+                    foreach (var t in Model)
+                    {
+                        <tr>
+                            <td>@t.TrainId</td>
+                            <td>@t.TrainNumber</td>
+                            <td>@t.TrainType</td>
+                            <td>@t.TrainAge</td>
+                        </tr>
+                    }
+                }
+
+
+            </tbody>
+        </table>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+    <script src="script.js"></script>
+
+</body>
+
