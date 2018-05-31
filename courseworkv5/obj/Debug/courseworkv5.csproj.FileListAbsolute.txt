@@ -115,8 +115,8 @@ D:\course\courseworkv5\courseworkv5\bin\Microsoft.AI.DependencyCollector.xml
 D:\course\courseworkv5\courseworkv5\bin\Microsoft.AI.WindowsServer.xml
 D:\course\courseworkv5\courseworkv5\bin\Microsoft.AI.Web.xml
 D:\course\courseworkv5\courseworkv5\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-D:\course\courseworkv5\courseworkv5\obj\Debug\courseworkv5.csprojAssemblyReference.cache
 D:\course\courseworkv5\courseworkv5\obj\Debug\courseworkv5.csproj.CoreCompileInputs.cache
 D:\course\courseworkv5\courseworkv5\obj\Debug\courseworkv5.csproj.CopyComplete
 D:\course\courseworkv5\courseworkv5\obj\Debug\courseworkv5.dll
 D:\course\courseworkv5\courseworkv5\obj\Debug\courseworkv5.pdb
+D:\course\courseworkv5\courseworkv5\obj\Debug\courseworkv5.csprojAssemblyReference.cache

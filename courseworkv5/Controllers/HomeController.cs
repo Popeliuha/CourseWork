@@ -1,4 +1,5 @@
-﻿using System;
+﻿using courseworkv5.Models.Home;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -25,15 +26,20 @@ namespace courseworkv5.Controllers
         public ActionResult SearchChild(int childrenCount)
         {
             List<Workers> work = new List<Workers>();
-            foreach (var w in db.Workers.ToList())
+            foreach (var w in db.Workers.Where(worker=>worker.ChildrenCount>=childrenCount).ToList())
             {
-                if (w.ChildrenCount >= childrenCount)
-                {
-                    work.Add(w);
-                }
+                work.Add(w);
             }
-            return View(work);
+           var viewModel= new SearchChildViewModel
+            {
+                RequestedCount = childrenCount,
+                Workers = work
+            };
+
+            return View(viewModel);
         }
+
+       
 
         public ActionResult WorkersAdmins()
         {
